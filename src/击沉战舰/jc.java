@@ -35,19 +35,25 @@ public String check(String stringGuess) {
 		GameHelper helper = new GameHelper();
 		jc dot = new jc();
 		int m = (int)(Math.random() * 7);
-		String a = new String (String.valueOf(m));String b = new String(String.valueOf(m+1));String c = new String(String.valueOf(m+2));
-		locations.add(a);locations.add(b);locations.add(c);
+		
+		String a = new String (String.valueOf(m));
+		String b = new String(String.valueOf(m+1));
+		String c = new String(String.valueOf(m+2));
+		
+		locations.add(a);
+		locations.add(b);
+		locations.add(c);
 		dot.set(locations);
+		
 		boolean isAlive =true;
 
-
 		while(isAlive == true) {
-			String guess = helper.input("Enter a number you like");
+			String guess = helper.input("Enter a coordinate bewteen 0~9");
 			String result = dot.check(guess);
 			numofguess++;
 			if(result.equals("Kill")){
 				isAlive = false;
-				System.out.println("You've guessed " + numofguess + " times");
+				System.out.println("You've fired " + numofguess + " times");
 			}
 		}
 
